@@ -1,0 +1,27 @@
+#include <Servo.h>
+Servo servo;
+int spd = 60; // time between each degree of angle, higher time means slower speed, value must be over 40 or it will not work 
+int i = 0;
+int k = 0;
+int ang = 90;
+void setup() {
+  servo.attach (A3);  // connect servo signal to arduino digital pin A3
+  servo.write(ang);
+  delay(2000);
+  ang = 45;
+}
+ 
+void loop() {
+  for(i=0;i<90;i++)
+  {
+    servo.write(ang+i);
+    delay(spd);
+    }
+    delay(1000);
+  for(k=89;k>-1;k--)
+   {
+    servo.write(ang+k);
+    delay(spd);
+    } 
+  delay(1000); 
+}
